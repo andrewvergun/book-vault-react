@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../assets/logo.svg'
 import './Navbar.css'
-import SearchForm from '../SearchForm/SearchForm'
+import { Link } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -9,15 +9,17 @@ const Navbar = () => {
     <>
         <nav className='navbar'>
             <div className="logo">
-                <img src={logo} alt="" />
-                <h1>BookVault</h1>
+                <Link to="/" className='logo-link'>
+                    <img className="logo-icon" src={logo} alt="" />
+                    <h1 className='logo-text'>BookVault</h1>
+                </Link>
             </div>
             <ul>
-                <li>Home</li>
-                <li>About</li>
+                <Link to="/"><li>Home</li></Link>
+                <Link to="/about"><li>About</li></Link>
             </ul>
-            <div className="dark-mode-button">
-                <button>Dark Mode</button>
+            <div className="free-space">
+                
             </div>
                 
             

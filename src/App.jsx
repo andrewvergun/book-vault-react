@@ -1,15 +1,44 @@
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import React from "react";
+import "./index.css";
+import { BrowserRouter, Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import SearchForm from "./components/SearchForm/SearchForm";
 import Footer from "./components/Footer/Footer";
+import BookDetails, {
+  bookDetailsLoader,
+} from "./pages/BookDetails/BookDetails";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </>
+    ),
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/books/:book_id",
+        element: <BookDetails />,
+        loader: bookDetailsLoader,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <SearchForm />
-      <Footer />
-    </>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
