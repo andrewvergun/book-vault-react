@@ -21,15 +21,15 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/book-vault-react",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "/book-vault-react/about",
+        path: "/about",
         element: <About />,
       },
       {
-        path: "/book-vault-react/books/:book_id",
+        path: "/:book_id",
         element: <BookDetails />,
         loader: bookDetailsLoader,
       },
