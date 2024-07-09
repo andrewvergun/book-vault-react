@@ -5,4 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   // base: '/book-vault-react/',
   plugins: [react()],
+  base: '/book-vault-react/',
 })
